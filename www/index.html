@@ -20,24 +20,60 @@
     <script src="js/app.js"></script>
   </head>
   <body ng-app="starter">
+    <ion-side-menus>
 
-    <ion-pane>
+<!-- Non-side bar content -->
+      <ion-side-menu-content>
+        <!-- Nav bar for the html -->
+        <ion-nav-bar class="bar-stable">
+          <ion-nav-buttons side="left">
+<!-- Menu toggle is required otherwise clicking icon will not trigger menu -->
+            <button
+              menu-toggle="left"
+            class="button button-left ion-navicon button-clear"></button>
+          </ion-nav-buttons>
+          <ion-nav-back-button></ion-nav-back-button>
+        </ion-nav-bar>
+<!-- templates that will be displaced -->
+        <ion-nav-view></ion-nav-view>
+      </ion-side-menu-content>
+
+<!-- Actual side menu content starts here -->
+      <ion-side-menu side="left">
+<!-- Header bar for side menu -->
+        <ion-header-bar class="bar-stable">
+          <h1 class="title">Menu</h1>
+        </ion-header-bar>
+<!-- side menu content -->
+        <ion-content>
+          <ion-list>
+<!-- menu-close attribute and href is required otherwise, menu will not close -->
+            <ion-item menu-close href="#/home">Home</ion-item>
+            <ion-item menu-close href="#/settings">Settings</ion-item>
+          </ion-list>
+        </ion-content>
+      </ion-side-menu>
+
+    </ion-side-menus>
+
+
+    <!-- <ion-pane>
       <ion-nav-bar class="bar-stable">
         <ion-nav-back-button></ion-nav-back-button>
-      </ion-nav-bar>
+      </ion-nav-bar> -->
       <!-- if you do not have ion-tab then ion-nav-view should be sufficient for SPA -->
       <!-- class tabs-icon-top allows icon to be shown above the text -->
-      <ion-tabs class="tabs-icon-top">
-        <ion-tab href="#/home" icon="ion-home" title="Home">
+      <!-- <ion-tabs class="tabs-icon-top">
+        <ion-tab href="#/home" icon="ion-home" title="Home"> -->
           <!-- each ion-nav-view need to have their own history so name is required -->
-          <ion-nav-view name="tab-home"></ion-nav-view>
+          <!-- <ion-nav-view name="tab-home"></ion-nav-view>
         </ion-tab>
-        <ion-tab href="#/settings" icon="ion-settings" title="Settings">
+        <ion-tab href="#/settings" icon="ion-settings" title="Settings"> -->
           <!-- each ion-nav-view need to have their own history so name is required -->
-          <ion-nav-view name="tab-settings"></ion-nav-view>
+          <!-- <ion-nav-view name="tab-settings"></ion-nav-view>
         </ion-tab>
       </ion-tabs>
 
-    </ion-pane>
+    </ion-pane> -->
   </body>
 </html>
