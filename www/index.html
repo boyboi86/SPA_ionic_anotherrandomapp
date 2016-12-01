@@ -7,21 +7,8 @@
 
     <link rel="manifest" href="manifest.json">
 
-    <!-- un-comment this code to enable service worker
-    <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('service-worker.js')
-          .then(() => console.log('service worker installed'))
-          .catch(err => console.log('Error', err));
-      }
-    </script>-->
-
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-    <link href="css/ionic.app.css" rel="stylesheet">
-    -->
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
@@ -35,11 +22,22 @@
   <body ng-app="starter">
 
     <ion-pane>
-      <ion-header-bar class="bar-stable">
-        <h1 class="title">Ionic Blank Starter</h1>
-      </ion-header-bar>
-      <ion-content>
-      </ion-content>
+      <ion-nav-bar class="bar-stable">
+        <ion-nav-back-button></ion-nav-back-button>
+      </ion-nav-bar>
+      <!-- if you do not have ion-tab then ion-nav-view should be sufficient for SPA -->
+      <!-- class tabs-icon-top allows icon to be shown above the text -->
+      <ion-tabs class="tabs-icon-top">
+        <ion-tab href="#/home" icon="ion-home" title="Home">
+          <!-- each ion-nav-view need to have their own history so name is required -->
+          <ion-nav-view name="tab-home"></ion-nav-view>
+        </ion-tab>
+        <ion-tab href="#/settings" icon="ion-settings" title="Settings">
+          <!-- each ion-nav-view need to have their own history so name is required -->
+          <ion-nav-view name="tab-settings"></ion-nav-view>
+        </ion-tab>
+      </ion-tabs>
+
     </ion-pane>
   </body>
 </html>
